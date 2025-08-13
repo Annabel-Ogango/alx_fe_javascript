@@ -8,20 +8,20 @@
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <div id="syncStatus" style="margin-bottom: 10px; color: green;"></div>
+  <!-- ✅ Server sync and conflict status -->
+  <div id="syncStatus" style="margin-bottom: 10px; font-weight: bold;"></div>
 
-
-  <!-- ✅ Filter Quotes Section -->
+  <!-- ✅ Filter Quotes by Category -->
   <h2>Filter Quotes</h2>
   <select id="categoryFilter" onchange="filterQuotes()">
     <option value="all">All Categories</option>
-    <!-- Other categories added dynamically -->
+    <!-- Populated dynamically -->
   </select>
 
   <!-- ✅ Display Area -->
   <div id="quoteDisplay" style="margin: 20px 0; font-size: 1.2em;"></div>
 
-  <!-- ✅ Show New Random Quote -->
+  <!-- ✅ Show Random Quote -->
   <button id="newQuote">Show New Quote</button>
 
   <!-- ✅ Add New Quote -->
@@ -32,14 +32,14 @@
     <button id="addQuoteBtn">Add Quote</button>
   </div>
 
-  <!-- ✅ Import / Export -->
+  <!-- ✅ Export / Import Section -->
   <h2>Import / Export Quotes</h2>
   <div>
     <button id="exportQuotesBtn">Export Quotes</button>
     <input type="file" id="importQuotesInput" />
   </div>
 
-  <!-- ✅ Script -->
+  <!-- ✅ Hook JS file -->
   <script src="script.js"></script>
 </body>
 </html>
