@@ -44,6 +44,9 @@ function showRandomQuote() {
 
   const randomQuote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)];
   quoteDisplay.textContent = `"${randomQuote.text}" — ${randomQuote.category}`;
+
+  // ✅ Save to sessionStorage
+  sessionStorage.setItem("lastViewedQuote", JSON.stringify(randomQuote));
 }
 
 // Add new quote from form
@@ -60,4 +63,27 @@ function addQuote() {
   }
 
   quotes.push({ text, category });
-  s
+  saveQuotes(); // ✅ Save to localStorage
+
+  // Clear form
+  textInput.value = "";
+  categoryInput.value = "";
+
+  populateCategories();
+  alert("Quote added successfully!");
+}
+
+// Event listeners
+newQuoteBtn.addEventListener("click", showRandomQuote);
+addQuoteBtn.addEventListener("click", addQuote);
+categorySelect.addEventListener("change", showRandomQuote);
+
+// Initial setup
+populateCategories();
+
+// ✅ Show last viewed quote from sessionStorage (if available)
+const lastViewed = sessionStorage.getItem("lastViewedQuote");
+if (lastViewed) {
+  const quote = JSON.parse(lastViewed);
+  quoteDisplay.textContent = `"${quote.text}" — ${quote.category}`;
+}
